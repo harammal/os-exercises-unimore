@@ -11,4 +11,4 @@ COLORS=(["black"]="30" ["red"]="31" ["green"]="32" ["yellow"]="33"
 read -p "Write your favourite color: " FAV_COLOR
 
 # Print a personalized greeting
-echo -e "\e[${COLORS[${FAV_COLOR,,}]}mHello "${USERNAME}"\e[0m"
+echo -e "\e[${COLORS[${FAV_COLOR,,}]}mHello ${USERNAME}\e[0m"
