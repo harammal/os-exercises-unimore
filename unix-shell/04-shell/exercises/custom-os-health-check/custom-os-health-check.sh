@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source os_health_lib.sh
+source os-health-lib.sh
 
 while true; do
 	get_process_load
