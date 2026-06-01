@@ -2,10 +2,7 @@
 
 draw_rect() {
 	# read the variables
-	local x1=$1
-	local y1=$2
-	local x2=$3
-	local y2=$4
+	local x1=$1 y1=$2 x2=$3 y2=$4
 	# calculate length and height
 	local l=$((x2 - x1))
 	local h=$((y2 - y1))
@@ -15,7 +12,7 @@ draw_rect() {
 	#echo "l=$l, h=$h"
 	#echo "cols=$(tput cols), lines=$(tput lines)"
 
-	# printf upper base
+	# print upper base
 	tput cup $y1 $x1
 	for (( i=0; i<l; i++ )); do
 		printf "+"
@@ -34,6 +31,10 @@ draw_rect() {
 		printf "+"
 	done
 	echo ""
+
+	# Hide the cursor and move it out of the way
+	tput civis
+	tput cup 0 0
 }
 
 rect() {
@@ -55,7 +56,7 @@ rect() {
 trap 'clear; rect' SIGWINCH
 
 # SIGINT handler
-trap 'clear; exit' SIGINT
+trap 'tput cnorm; clear; exit 0' SIGINT SIGTERM
 
 # start
 clear
