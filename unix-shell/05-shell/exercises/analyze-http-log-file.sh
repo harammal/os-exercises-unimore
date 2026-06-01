@@ -13,4 +13,4 @@ fi
 # analyze file.log with grep
 echo "Success requests: $(grep -c ' 200 ' $file)"
 
-echo "Top 5 largest requests: $(grep -E ' [0-9]{3} ' $file | cut -d' ' -f5 | sort -rn | head -n 5 | tr "\n" ' ')"
+echo "Top 5 largest requests: $(grep -Eo ' [0-9]{3} [0-9]+ ' $file | cut -c2- | cut -d' ' -f2 | sort -rn | head -n 5 | tr '\n' ' ')"
