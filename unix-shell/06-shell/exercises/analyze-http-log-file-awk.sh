@@ -8,6 +8,7 @@ extension="${file##*.}"
 
 if [ $# -ne 1 -o $extension != 'log' ]; then
 	echo "Usage: $0 <file.log>"
+	exit 1
 fi
 
 # analyze file.log with grep
