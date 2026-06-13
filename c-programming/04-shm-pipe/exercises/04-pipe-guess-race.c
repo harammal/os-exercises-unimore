@@ -68,8 +68,6 @@ int main() {
             int msg[2] = {getpid(), guess};
             write(pipes[i][1], msg, sizeof(int *));
 
-
-
             _exit(0);
         }
     }
